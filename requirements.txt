@@ -1,0 +1,33 @@
+# TutorAgentPoC — pinned to the versions this PoC was developed and verified against.
+# Tested on Python 3.9.6.
+#
+#   python3 -m venv .venv
+#   source .venv/bin/activate      # Windows: .venv\Scripts\activate
+#   pip install -r requirements.txt
+
+# Agent framework — enforces that the local model's reply matches a Pydantic schema.
+# Pinned exactly: pydantic-ai is pre-1.0 and its agent/output API still shifts between
+# minor releases, which is precisely what the notebook's structured output depends on.
+pydantic-ai==0.8.1
+pydantic==2.13.4
+# NOTE: `pydantic-ai` is the meta-package and pulls in provider extras this PoC never
+# uses (Anthropic, Bedrock, Cohere, Google, Groq, HuggingFace, Mistral, Vertex). For a
+# much smaller install, swap the line above for the slim package with just the
+# OpenAI-compatible provider Ollama speaks:
+#     pydantic-ai-slim[openai]==0.8.1
+
+# HTTP client used to reach Ollama's OpenAI-compatible endpoint at localhost:11434.
+openai==2.43.0
+
+# Extracts text from data/New-Round-Up-5.pdf into the cached reference chunks.
+pypdf==6.14.2
+
+# Rejects non-English submissions before any model call is made.
+langdetect==1.0.9
+
+# Jupyter kernel — required to run the notebook from VS Code.
+ipykernel==6.31.0
+
+# Optional: only if you want to run the notebook in a browser instead of VS Code.
+# Left unpinned because it is not part of the verified environment.
+# jupyterlab
