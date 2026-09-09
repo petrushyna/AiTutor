@@ -1,3 +1,6 @@
+# data files
+data/New-Round-Up-5.pdf
+data/new_round_up_5_reference.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -216,3 +219,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+data/new_round_up_5_reference.json
